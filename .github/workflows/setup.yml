@@ -7,7 +7,8 @@ permissions:
   contents: write
 jobs:
   setup:
-    if: ${{ !github.event.repository.is_template }}
+    # not in the template repository itself (is_template is set only after its first push)
+    if: ${{ !github.event.repository.is_template && github.event.repository.name != 'contest-template' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
