@@ -1,4 +1,4 @@
-# Contest template
+# contest-template
 
 [SIO2](https://github.com/sio2project/oioioi) contest, packages built with
 [sinol-make](https://github.com/sio2project/sinol-make).
