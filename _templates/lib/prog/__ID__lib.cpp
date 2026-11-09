@@ -32,7 +32,8 @@ int main() {
     reads.assign(n + 1, 0);
     for (int i = 1; i <= n; ++i)
         if (scanf("%lld", &a[i]) != 1) return 1;
-    fclose(stdin);  // the contestant must use element(), not read the input
+    // No fclose(stdin): sio2jail on SIO forbids close(0), which gives RV on every test.
+    // The whole test is already read, so the contestant has nothing left to read.
     long long answer = maks_suma();
     printf("%lld\n", answer);
 }

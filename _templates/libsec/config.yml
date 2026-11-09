@@ -1,0 +1,31 @@
+title: TODO
+sinol_task_id: __ID__
+sinol_contest_type: oi
+
+# Library task with encrypted tests and coded verdicts (as in the camp packages):
+# - solutions implement maks_suma() and call dlugosc() / element() from __ID__lib.h;
+#   main() is in __ID__lib.cpp;
+# - every test starts with a guard word and every number in it is XORed with a key,
+#   so a solution that reads stdin before the library sees nothing useful;
+# - the library prints a random code instead of the verdict, prog/__ID__chk.cpp
+#   turns the codes into verdicts, so a solution cannot print its own "OK".
+# The secrets are in __ID__lib.cpp, __ID__chk.cpp, __ID__ingen.cpp and __ID__inwer.cpp
+# (lines marked TEMPLATE:): draw new ones for every package and keep the four copies equal.
+# Contestants get dlazaw/ (the same __ID__lib.h, a plain sample library, a sample wrong
+# solution and a plain example test) as dlazaw.zip, instead of __ID__ocen.zip.
+extra_compilation_files: ['__ID__lib.cpp', '__ID__lib.h']
+extra_compilation_args:
+  cpp: ['__ID__lib.cpp']
+
+memory_limit: 524288  # KiB
+time_limit: 1000      # ms
+# time_limits:
+#   2: 2000
+
+scores:
+  1: 30
+  2: 70
+
+# Group 2 is scored as if it also contained the tests of group 1.
+subtask_dependencies:
+  2: [1]

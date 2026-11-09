@@ -1,0 +1,119 @@
+\documentclass[zad,zawodnik,utf8,pl]{sinol}
+\title{TODO}
+\id{__ID__}
+\signature{TODO}
+\konkurs{TODO}
+\day{TODO}
+\date{TODO}
+\RAM{512}
+\iomode{stdin}
+\pagestyle{fancy}
+
+\usepackage{amsmath}
+% TEX_PACKAGE_GUARD
+% Remember to add the package to the github action whenever using
+% packages not present in TeXLive small.
+
+% TEMPLATE: the layout of the library tasks from the camps. The tests are encrypted, so
+% \makecompactexample would print garbage: show the example as a table of calls.
+
+\begin{document}
+\begin{tasktext}
+	\vspace{-0.5cm}
+	\noindent {}
+
+	\noindent TODO: historyjka i zadanie. \\
+
+	\section{Komunikacja}
+	To zadanie jest z biblioteczką. Aby jej użyć, należy wpisać na początku programu:
+	\begin{itemize}
+        \item \textbf{C++:}
+            \verb|#include "__ID__lib.h"|
+    \end{itemize}
+	Biblioteka udostępnia następujące funkcje:
+	\begin{itemize}
+        \item $\texttt{dlugosc}()$ \\
+            Zwraca $n$ -- TODO.
+            \begin{itemize}
+                \item \textbf{C++:}
+		                \texttt{int dlugosc();}
+            \end{itemize}
+        \item $\texttt{element}(i)$ \\
+            Zwraca $a_i$ ($1 \leq i \leq n$) -- TODO.
+            \begin{itemize}
+                \item \textbf{C++:}
+		                \texttt{long long element(int i);}
+            \end{itemize}
+    \end{itemize}
+	Twój program musi zawierać następującą funkcję:
+	\begin{itemize}
+        \item $\texttt{maks\_suma}()$ \\
+            Biblioteka wywoła ją dokładnie raz. Funkcja ma zwrócić TODO.
+            \begin{itemize}
+                \item \textbf{C++:}
+		                \texttt{long long maks\_suma();}
+            \end{itemize}
+    \end{itemize}
+
+	\noindent Twój program \textbf{nie może} czytać żadnych danych
+    (ani ze standardowego wejścia, ani z plików).
+    \textbf{Nie może} również nic wypisywać do plików ani na standardowe wyjście
+    ani zawierać funkcji \texttt{main}.
+    Może pisać na standardowe wyjście diagnostyczne
+    (\texttt{stderr}) -- pamiętaj jednak, że zużywa to cenny czas.\\
+
+	\section{Założenia}
+	\begin{itemize}
+		\item $1 \leq n \leq 200\,000$
+		\item $|a_i| \leq 10^9$
+	\end{itemize}
+
+	\section{Ocenianie}
+	\begin{itemize}
+		\item Funkcję \texttt{element($i$)} można wywołać tylko dla $1 \leq i \leq n$ i co najwyżej dwa razy dla tego samego $i$. W przeciwnym razie program automatycznie się kończy i otrzymuje $0$ punktów za test.
+		\item Za błędną odpowiedź otrzymasz $0$ punktów za test.
+		\item W przypadku błędów z komunikacją twój program otrzyma werdykt \textit{Błąd związany z komunikacją}.
+	\end{itemize}
+
+	\section{Przykładowy przebieg programu}
+
+	\begin{center}
+		\begin{tabular}{|l|l|p{10cm}|}
+			\hline
+			\textbf{Wywołana funkcja} & \textbf{Wynik}  & \textbf{Opis} \\ \hline
+			\texttt{maks\_suma()}   &         & Biblioteka wywołuje funkcję zawodnika. \\ \hline
+			\texttt{dlugosc()}      & $3$     & TODO \\ \hline
+			\texttt{element($1$)}   & $1$     & TODO \\ \hline
+			                        & TODO    & Funkcja \texttt{maks\_suma} zwraca TODO. \\ \hline
+		\end{tabular}
+	\end{center}
+
+	\section{Podzadania}
+	% Keep in sync with `scores` and `time_limit(s)` in config.yml (checked by `contest.py lint`).
+	\begin{center}
+		\begin{tabular}{|l|l|p{7cm}|l|}
+			\hline
+			\textbf{Podzadanie} & \textbf{Liczba punktów} & \textbf{Ograniczenia} & \textbf{Limit czasu} \\ \hline
+			1 & $30$ & $n \leq 1000$ & $1$ s \\ \hline
+			2 & $70$ & brak dodatkowych założeń & $1$ s \\ \hline
+		\end{tabular}
+	\end{center}
+
+	\section{Biblioteka}
+
+	\noindent Możesz założyć, że działanie biblioteczki, jeżeli wszystkie funkcje zostaną wywołane maksymalną liczbę razy, nie zajmie więcej niż TODO s oraz nie zajmie więcej niż TODO MB pamięci RAM.
+
+	\section{Eksperymenty}
+
+	\noindent{\sloppy Przykładowe \textbf{błędne} rozwiązanie i przykładowa biblioteka w języku C++ znajdują się w archiwum \texttt{dlazaw.zip} w dziale \textit{Pliki i testy} na SIO. Rozwiązanie to i biblioteka obrazują typy zwracane oraz przyjmowane przez wszystkie funkcje. Przykładowa biblioteka może różnić się zachowaniem od tej, która zostanie użyta do oceny rozwiązań, i może nie spełniać założeń zadania. Ma ona jedynie pokazać sposób interakcji z programem. Wczytuje ze standardowego wejścia TODO. Przykładowe wejście znajduje się w pliku \texttt{__ID__0.in}.\par}
+
+  \noindent Rozwiązanie \texttt{__ID__.cpp} w języku C++ można skompilować i uruchomić w następujący sposób:
+
+  \texttt{g++ -O3 -static -o __ID__ __ID__.cpp __ID__lib.cpp -std=c++23}
+
+  \texttt{./__ID__ < __ID__0.in}
+
+\noindent Należy zadbać o to, aby pliki \texttt{__ID__lib.cpp} oraz \texttt{__ID__lib.h} znajdowały się w tym samym folderze co rozwiązanie.
+
+\end{tasktext}
+\end{document}
