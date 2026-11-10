@@ -497,11 +497,12 @@ def latest_tag(repo):
         return None
 
 
-def fetch(repo, ref, local):
-    """(directory with the files of repo at ref, description). local = a checkout to use instead."""
+def fetch(repo, ref, local, tagged=True):
+    """(directory with the files of repo at ref, description). local = a checkout to use instead.
+    No ref: the latest tag if tagged, else (and when there are no tags) main."""
     if local:
         return Path(local).resolve(), str(local)
-    ref = ref or latest_tag(repo) or "main"
+    ref = ref or (latest_tag(repo) if tagged else None) or "main"
     url = f"https://codeload.github.com/{repo}/tar.gz/{ref}"
     try:
         with urllib.request.urlopen(url, timeout=120) as f:
@@ -663,7 +664,7 @@ def update_templates(src, ids, dry):
 def cmd_update(args):
     what = args.what
     if what in ("tools", "templates", "all"):
-        src, desc = fetch(TEMPLATE_REPO, args.ref if what != "all" else None, args.template_from)
+        src, desc = fetch(TEMPLATE_REPO, args.ref if what != "all" else None, args.template_from, tagged=False)
         print(f"from {desc}")
         if what in ("tools", "all"):
             update_tools(src, args.dry_run)
@@ -719,10 +720,10 @@ def main():
                                    "_templates/ (keeps the contest name and logo, removes what contest-template no longer has; "
                                    "gen.h only via `gen`) and the shared files "
                                    "(oi.h, sinol.cls, ...) of the given packages. all: tools + templates + gen, "
-                                   "no packages. Default version: the latest tag.")
+                                   "no packages. Default version: main of contest-template, the latest tag of sinol-gen.")
     p.add_argument("what", choices=["gen", "tools", "templates", "all"])
     p.add_argument("ids", nargs="*", help="packages to update too, or `all`")
-    p.add_argument("--ref", help="tag or branch instead of the latest tag")
+    p.add_argument("--ref", help="tag or branch instead of the default (main / latest tag)")
     p.add_argument("--gen-from", metavar="DIR", help="a local sinol-gen checkout instead of GitHub")
     p.add_argument("--template-from", metavar="DIR", help="a local contest-template checkout instead of GitHub")
     p.add_argument("--dry-run", action="store_true", help="only show what would change")

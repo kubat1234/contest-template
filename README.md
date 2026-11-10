@@ -54,7 +54,7 @@ python3 contest.py lint                 # statement vs config, TODOs, old gen.h,
 python3 contest.py export-all           # export --export-ocen, archives in _export/
 python3 contest.py update gen [abc|all] # newer gen.h into _templates (+ packages, only if their tests stay the same)
 python3 contest.py update tools         # contest.py, .github/, .githooks/, .claude/, .gitignore, README.md
-python3 contest.py update templates     # _templates/ from contest-template (keeps the contest name and logo)
+python3 contest.py update templates [abc|all] # _templates/ (+ shared files of packages) from contest-template main (keeps the contest name and logo)
 python3 contest.py logo logo.png        # new logo in _templates and all packages
 ```
 
