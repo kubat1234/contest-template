@@ -20,7 +20,9 @@ Opening the repository in Claude Code offers to install the
 [sinol-package](https://github.com/kubat1234/sinol-package-skill) skill. Manually:
 `/plugin marketplace add kubat1234/sinol-package-skill`, then
 `/plugin install sinol-package@sinol-package`.
-Update: `/plugin marketplace update sinol-package`.
+The repository turns on auto-update for it (`.claude/settings.json`): new
+versions install in the background and load in the next session. Update now:
+`claude plugin update sinol-package@sinol-package`.
 
 ## New package
 
